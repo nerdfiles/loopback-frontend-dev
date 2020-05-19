@@ -4,7 +4,7 @@ import API from '../api'
 export const login = (email, pass) => {
 
   return (dispatch) => {
-    API.login(email, pass, res => {
+    API.authn.login(email, pass, res => {
 
       // @TODO
       dispatch({

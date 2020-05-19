@@ -2,9 +2,9 @@ import axios from 'axios';
 
 
 const host = 'http://localhost:8080';
-const modelName = 'users';
+const modelName = 'Posts';
 
-const user = {
+const post = {
   find: find,
   findOne: findOne
 };
@@ -26,4 +26,4 @@ function findOne() {
 }
 
 
-export default user;
+export default post;

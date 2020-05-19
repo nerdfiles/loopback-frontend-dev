@@ -2,6 +2,7 @@ import axios from 'axios';
 
 
 const host = 'http://localhost:8080';
+const modelName = 'users';
 
 const authn = {
   login: login 
@@ -15,7 +16,7 @@ const authn = {
  * @param success function Callback.
  */
 function login(email, pass, success) {
-  axios.post(`${host}/api/users/login`, {
+  axios.post(`${host}/api/${modelName}/login`, {
     email: email, password: pass
   })
     .then(res => {
