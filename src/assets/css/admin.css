@@ -1,0 +1,30 @@
+.login-page {
+  background: #eee;
+  min-height: 100vh;
+}
+
+.login-page .container {
+  top: 100px;
+  position: relative;
+}
+
+.login-form h1 {
+  font-size: 22px;
+  flex: auto;
+}
+
+.login-form {
+  max-width: 500px;
+  margin: auto;
+  padding: 30px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+  border-radius: 15px;
+  background: #fff;
+}
+
+.login-form form .row > div {
+  margin-bottom: 15px;
+}
+.login-form form .row > div:last-of-type {
+  margin-bottom: 0;
+}
