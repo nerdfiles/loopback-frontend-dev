@@ -6,7 +6,7 @@ import * as AdminActions from '../../actions/adminActions';
 const columns = [
   {label: 'ID', name: 'id'},
   {label: 'Email', name: 'email'},
-  {label: 'Name', name: 'name'},
+  {label: 'Username', name: 'username'},
 
 ];
 

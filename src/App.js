@@ -24,6 +24,7 @@ import {connect} from 'react-redux';
 import Dashboard from './pages/admin/Dashboard'
 import Posts from './pages/admin/Posts'
 import Users from './pages/admin/Users'
+import AddPost from './pages/admin/posts/Add';
 
 import portfolioModalImg1 from './assets/img/portfolio/01-full.jpg';
 
@@ -154,7 +155,58 @@ class App extends Component {
             }}
           />
 
-          <Route path="/admin/posts"
+          <Route 
+            path="/admin/posts/:view/:id"
+            render={props => {
+              return (
+                <>
+                  {this.props.auth.token ?
+                    (
+                      <AdminWrapper>
+                        <AddPost />
+                      </AdminWrapper>
+                    )
+                    :
+                    (
+                      <LoginWrapper>
+                        <Login />
+                      </LoginWrapper>
+                    )
+                  }
+                </>
+              )
+            }}
+          />
+
+
+          <Route 
+            exact={true}
+            path="/admin/posts/:view"
+            render={props => {
+              return (
+                <>
+                  {this.props.auth.token ?
+                    (
+                      <AdminWrapper>
+                        <AddPost />
+                      </AdminWrapper>
+                    )
+                    :
+                    (
+                      <LoginWrapper>
+                        <Login />
+                      </LoginWrapper>
+                    )
+                  }
+                </>
+              )
+            }}
+          />
+
+
+          <Route 
+            exact={true}
+            path="/admin/posts"
             render={props => {
               return (
                 <>
