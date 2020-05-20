@@ -33,7 +33,8 @@ function getPostBySlug(slug, token, success) {
   axios.get(`${host}/api/${modelName}/findOne?access_token=${token}`, {
     params: {
       filter: {
-        where: { slug: slug }
+        where: { slug: slug },
+        include: {Comments: { user: 'Profile'} }
       }
     }
   })

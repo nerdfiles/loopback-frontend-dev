@@ -1,6 +1,35 @@
 import API from '../api'
 
 
+export const postComment = (comment, token) => {
+  return dispatch => {
+    API.site.postComment(comment, token, res => {
+      if (res.status === 200) {
+        API.site.getCommentById(res.data.id, token, commentRes => {
+          dispatch({
+            type: 'POST_COMMENT',
+            payload: commentRes.data
+          });
+        })
+      }
+    });
+  };
+}
+
+// @TODO action not even used as an action anywhere
+export const getCommentById = (commentId, token) => {
+  return dispatch => {
+    API.site.getCommentById(commentId, token, res => {
+      if (res.status === 200) {
+        dispatch({
+          type: 'GOT_COMMENT_BY_ID',
+          payload: res.data
+        });
+      }
+    });
+  };
+}
+
 /**
  * getPosts
  */

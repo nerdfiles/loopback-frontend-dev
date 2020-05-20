@@ -26,6 +26,15 @@ const site = (state = defaultState, action) => {
         post: action.payload
       };
 
+    case 'POST_COMMENT': 
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          Comments: state.post.Comments.concat(action.payload)
+        }
+      };
+
     case 'SET_FULL_POST_DATA':
       return {
         ...state,

@@ -1,7 +1,8 @@
 const defaultState = {
   user: {},
   token: null,
-  error: null
+  error: null,
+  profile: null
 };
 
 const auth = (state = defaultState, action) => {
@@ -12,6 +13,13 @@ const auth = (state = defaultState, action) => {
         user: action.payload,
         token: action.payload.token
       };
+
+    case 'AFTER_LOGIN':
+      return {
+        ...state,
+        user: action.payload,
+        profile: action.payload.Profile
+      }
 
     case 'CLEAR_AUTH': 
       return {

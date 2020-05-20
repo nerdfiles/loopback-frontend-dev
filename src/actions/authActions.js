@@ -28,6 +28,18 @@ export const login = (email, pass) => {
           userId: res.data.userId
         }
       });
+
+      const token = res.data.id;
+
+      API.user.findOne(res.data.userId, token, resUser => {
+        console.log('found user data')
+        console.log({resUser})
+        dispatch({
+          type: 'AFTER_LOGIN',
+          payload: resUser.data
+        })
+      })
+
     });
   };
 

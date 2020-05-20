@@ -22,7 +22,18 @@ function find(token, success) {
 /**
  * findOne
  */
-function findOne() {
+function findOne(userId, token, success) {
+  axios.get(`${host}/api/${modelName}/${userId}?access_token=${token}`, {
+    params: {
+      filter: {
+        include: 'Profile'
+      }
+    }
+  })
+    .then(res => {
+      success(res);
+    });
+
 }
 
 
