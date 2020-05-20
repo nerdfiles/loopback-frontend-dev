@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import * as AuthActions from '../actions/authActions';
+
 
 class Footer extends Component {
 
@@ -22,7 +25,22 @@ class Footer extends Component {
                         </a>
                     </div>
                     <div className="col-lg-4 text-lg-right">
+                      {
+                        this.props.auth.token ?
+                          <a href="#logout" className="mr-3" onClick={e => {
+                            e.preventDefault()
+                            this.props.clearAuth()
+                            localStorage.clear()
+                          }}>Logout</a>
+                        : null
+                      }
+                      {
+                        !this.props.auth.token ?
+                          <Link className="mr-3" to="/signup">Signup</Link>
+                      : null
+                      }
                       <Link className="mr-3" to="/admin">Admin</Link>
+                      <br />
                       <a className="mr-3" href="#!">Privacy Policy</a>
                       <a href="#!">Terms of Use</a>
                     </div>
@@ -34,4 +52,18 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+const mapStateToProps = state => ({ 
+  auth: state.auth
+})
+
+const mapDispatchToProps = dispatch => ({ 
+  clearAuth: () => {
+    dispatch(AuthActions.clearAuth());
+
+  }
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Footer);

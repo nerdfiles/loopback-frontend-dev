@@ -3,7 +3,9 @@ import './App.css';
 import PageWrapper from './components/PageWrapper';
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Link,
+  Redirect
 } from 'react-router-dom';
 
 // Non-admin Pages
@@ -21,6 +23,7 @@ import Modal from './components/Modal';
 import AdminWrapper from './components/AdminWrapper'
 import LoginWrapper from './components/LoginWrapper'
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import {connect} from 'react-redux';
 
 // Admin Pages
@@ -135,6 +138,24 @@ class App extends Component {
     return (
       <div className="App page-top">
         <Router>
+
+          <Route 
+            path="/signup"
+            exact={true}
+            render={props => {
+              if (this.props.auth.token) {
+                return (
+                  <Redirect to="/" />
+                );
+              } else {
+                return (
+                  <LoginWrapper>
+                    <Signup />
+                  </LoginWrapper>
+                );
+              }
+            }}
+          />
 
           <Route path="/admin/users"
             render={props => {

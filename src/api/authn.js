@@ -5,7 +5,8 @@ const host = 'http://localhost:8080';
 const modelName = 'users';
 
 const authn = {
-  login: login 
+  login: login,
+  register: register
 };
 
 /**
@@ -22,6 +23,28 @@ function login(email, pass, success) {
   })
     .then(res => {
       success(res);
+    });
+}
+
+/**
+ * register
+ *
+ * @param name
+ * @param email
+ * @param pass
+ * @param success
+ */
+function register(username, email, pass, success) {
+  axios.post(`${host}/api/${modelName}`, {
+    username: username, 
+    email: email, 
+    password: pass
+  })
+    .then(res => {
+      success(res);
+    })
+    .catch(err => {
+      success(err);
     });
 }
 

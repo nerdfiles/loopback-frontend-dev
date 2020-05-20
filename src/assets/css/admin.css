@@ -1,18 +1,22 @@
-.login-page {
+.login-page,
+.signup-page {
   background: #eee;
   min-height: 100vh;
 }
 
+.signup-page .container,
 .login-page .container {
   top: 100px;
   position: relative;
 }
 
+.signup-form h1,
 .login-form h1 {
   font-size: 22px;
   flex: auto;
 }
 
+.signup-form,
 .login-form {
   max-width: 500px;
   margin: auto;
@@ -22,9 +26,12 @@
   background: #fff;
 }
 
+.signup-form form .row > div,
 .login-form form .row > div {
   margin-bottom: 15px;
 }
+
+.signup-form form .row > div:last-of-type,
 .login-form form .row > div:last-of-type {
   margin-bottom: 0;
 }
