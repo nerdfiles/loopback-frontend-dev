@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 import {withFormik} from 'formik'
 import * as Yup from 'yup';
 import {connect} from 'react-redux';
-import * as AuthActions from '../actions/authActions';
 
+import * as AuthActions from '../actions/authActions';
 import '../assets/css/admin.css';
+
 
 class Login extends Component {
   render() {

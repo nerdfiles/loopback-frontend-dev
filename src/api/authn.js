@@ -17,7 +17,8 @@ const authn = {
  */
 function login(email, pass, success) {
   axios.post(`${host}/api/${modelName}/login`, {
-    email: email, password: pass
+    email: email, 
+    password: pass
   })
     .then(res => {
       success(res);
