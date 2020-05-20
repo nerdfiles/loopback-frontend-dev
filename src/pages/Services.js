@@ -8,6 +8,7 @@ class Services extends Component {
             <Header 
               subheading="Services Subheading"
               heading="Services Heading"
+              showButton={false}
               mastheadButton="Services Btn"
               mastheadButtonLink="#services"
             />

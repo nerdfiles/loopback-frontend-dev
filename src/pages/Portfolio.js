@@ -10,6 +10,7 @@ class Portfolio extends Component {
         <Header 
           subheading="Portfolio Subheading"
           heading="Portfolio Heading"
+          showButton={false}
           mastheadButton="Portfolio Btn"
           mastheadButtonLink="#portfolio"
         />

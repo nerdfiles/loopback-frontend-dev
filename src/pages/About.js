@@ -11,6 +11,7 @@ class About extends Component {
         <Header 
           subheading="About Subheading"
           heading="About Heading"
+          showButton={false}
           mastheadButton="About Btn"
           mastheadButtonLink="#about"
         />

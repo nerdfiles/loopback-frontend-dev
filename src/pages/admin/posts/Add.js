@@ -20,6 +20,9 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import ImageIcon from '@material-ui/icons/Image';
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css';
+
 
 import {withRouter} from 'react-router-dom'
 
@@ -109,6 +112,28 @@ class AddPost extends Component {
 
   }
 
+  modules = {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],
+      [{'header': 1}, {'header': 2}],
+      [{'list': 'ordered'}, {'list': 'bullet'}],
+      [{'indent': '-1'}, {'indent': '+1'}],
+      [{'size': ['small', 'medium', 'large', 'huge']}],
+      [{'color': []}, {'background': []}],
+      ['image'],
+      ['clean']
+    ]
+
+  };
+
+  formats = [
+    'header',
+    'bold', 'italic', 'underline', 'strike', 'blockquote', 'script',
+    'list', 'bullet', 'indent',
+    'link', 'image', 'color', 'code-block'
+
+  ];
+
   render() {
 
     const {classes} = this.props;
@@ -133,11 +158,12 @@ class AddPost extends Component {
               margin="normal"
             />
 
-            <FormikTextField 
-              name="content"
-              label="Content"
-              margin="normal"
-              fullWidth
+            <ReactQuill 
+              value={this.props.values.content}
+              placeholder="Write some"
+              modules={this.modules}
+              formats={this.formats}
+              onChange={val => this.props.setFieldValue('content', val)}
             />
 
           </Paper>

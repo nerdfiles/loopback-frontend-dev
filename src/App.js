@@ -14,6 +14,9 @@ import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 import Team from './pages/Team';
 
+import Blog from './pages/Blog';
+import BlogSinglePost from './pages/BlogSinglePost';
+
 import Modal from './components/Modal';
 import AdminWrapper from './components/AdminWrapper'
 import LoginWrapper from './components/LoginWrapper'
@@ -276,6 +279,25 @@ class App extends Component {
             render={props => (
               <PageWrapper>
                 <Portfolio {...props} />
+              </PageWrapper>
+            )}
+          />
+
+          <Route
+            path="/blog/:slug"
+            render={props => (
+              <PageWrapper>
+                <BlogSinglePost {...props} />
+              </PageWrapper>
+            )}
+          />
+
+          <Route
+            path="/blog"
+            exact={true}
+            render={props => (
+              <PageWrapper>
+                <Blog {...props} />
               </PageWrapper>
             )}
           />

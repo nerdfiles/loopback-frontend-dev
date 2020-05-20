@@ -35,7 +35,10 @@ const admin = (state = defaultState, action) => {
     case 'POST_UPDATED':
       return {
         ...state,
-        post: action.payload,
+        post: {
+          ...state.post,
+          ...action.payload,
+        },
         posts: state.posts.map(post => {
           if (post.id === action.payload.id) {
             // update post properties

@@ -9,6 +9,7 @@ class Team extends Component {
         <Header 
           subheading="Team Subheading"
           heading="Team Heading"
+          showButton={false}
           mastheadButton="Team Btn"
           mastheadButtonLink="#team"
         />

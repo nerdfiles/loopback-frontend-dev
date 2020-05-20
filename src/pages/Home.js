@@ -14,6 +14,7 @@ class Home extends Component {
         <Header 
           subheading="Home Subheading"
           heading="Home Heading"
+          showButton={true}
           mastheadButton="Home Btn"
           mastheadButtonLink="#home"
         />
